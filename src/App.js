@@ -13,10 +13,10 @@ class App extends Component {
     otherState: "other value"
   }
 
-  switchInfoHandler = () => {
+  switchInfoHandler = (newName) => {
     this.setState({
       people: [
-        {name: "Joe", age: 28},
+        {name: newName, age: 28},
         {name: "Mike", age: 40},
         {name: "Stephanie", age: 18}
       ]
@@ -27,10 +27,18 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Testing react app</h1>
-        <button onClick={this.switchInfoHandler}>Switch Name</button>
-        <Person name={this.state.people[0].name} age={this.state.people[0].age} />
-        <Person name={this.state.people[1].name} age={this.state.people[1].age}>Props children</Person>
-        <Person name={this.state.people[2].name} age={this.state.people[2].age}/>
+        <button onClick={() => this.switchInfoHandler("Lisa")}>Switch Name</button>
+        <Person 
+          name={this.state.people[0].name}
+          age={this.state.people[0].age} />
+        <Person 
+          name={this.state.people[1].name}
+          age={this.state.people[1].age}
+          click={this.switchInfoHandler.bind(this, "Heather")}
+          >Props children</Person>
+        <Person 
+           name={this.state.people[2].name}
+           age={this.state.people[2].age}/>
       </div>
     );
     // return React.createElement('div',{className:'App'},React.createElement('h1',null, 'Hi, I\'m an element'));
