@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
+import person from './Person/Person';
 
 class App extends Component {
 
@@ -10,7 +11,8 @@ class App extends Component {
       {name: "Adam", age: 40},
       {name: "Jess", age: 18}
     ],
-    otherState: "other value"
+    otherState: "other value",
+    showPersons: false
   }
 
   switchInfoHandler = (newName) => {
@@ -21,7 +23,6 @@ class App extends Component {
         {name: "Jess", age: 18}
       ],
       otherState: 'some other value',
-      showPerosns: false
     })
   }
 
@@ -55,18 +56,11 @@ class App extends Component {
     if (this.state.showPersons) {
       persons = (
         <div >
-          <Person 
-            name={this.state.people[0].name}
-            age={this.state.people[0].age}
-            click={this.switchInfoHandler.bind(this, ".bind(this, ' ')")}/>
-          <Person 
-            name={this.state.people[1].name}
-            age={this.state.people[1].age}
-            changed={this.nameChangedHandler}
-            >Props children</Person>
-          <Person 
-            name={this.state.people[2].name}
-            age={this.state.people[2].age}/>
+          {this.state.people.map(person => {
+          return <Person 
+            name={person.name} 
+            age={person.age} /> 
+          })}
         </div>
       );
     }
