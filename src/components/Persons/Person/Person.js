@@ -10,6 +10,6 @@ const person  = (props) => {
       <input type="text" onChange={props.changed} value={props.name}/>
     </div>
   )
-} 
+};
 
 export default person; 
