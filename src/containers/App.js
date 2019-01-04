@@ -27,7 +27,18 @@ class App extends Component {
     console.log('[App.js] inside componentDidMount()')
   }
 
-  // state = 
+  shouldComponentUpdate (nextProps, nextState) {
+    console.log('[UPDATE] App.js] inside shouldComponentUpdate()', nextProps, nextState);
+    return true;
+  }
+
+  componentWillUpdate (nextProps, nextState) {
+    console.log('[UPDATE App.js inside componentWillUpdate()', nextProps, nextState)
+  }
+
+  componentDidUpdate() {
+    console.log('[UPDATE App.js inside componentDidUpdate()')
+  }
 
   deletePersonHandler = (personIndex) => {
     // const persons = this.state.persons.slice(personIndex, 1);
@@ -77,7 +88,7 @@ class App extends Component {
           <Cockpit 
             appTitle={this.props.title}
             showPersons={this.state.showPersons}
-            persons={this.state.persons}
+            persons={this.state.persons} 
             clicked={this.togglePersonsHandler} />
 
           {persons}
