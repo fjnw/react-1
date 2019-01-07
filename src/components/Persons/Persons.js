@@ -7,16 +7,6 @@ class Persons extends PureComponent {
     super(props);
     console.log('[Persons.js] inside Constructor', props);
     this.lastPersonRef = React.createRef();
-   
-    // this.state = {
-    //   persons: [
-    //     {id: "1", name: "Max", age: 28},
-    //     {id: "2", name: "Adam", age: 40},
-    //     {id: "3", name: "Jess", age: 18}
-    //   ],
-    //   otherState: "other value",
-    //   showPersons: false
-    // }
   }
 
   componentWillMount() {

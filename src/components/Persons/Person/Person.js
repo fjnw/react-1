@@ -11,17 +11,6 @@ class Person extends Component  {
     super(props);
     console.log('[Person.js] inside Constructor', props);
     this.inputElement = React.createRef();
-
-
-    // this.state = {
-    //   persons: [
-    //     {id: "1", name: "Max", age: 28},
-    //     {id: "2", name: "Adam", age: 40},
-    //     {id: "3", name: "Jess", age: 18}
-    //   ],
-    //   otherState: "other value",
-    //   showPersons: false
-    // }
   }
 
   componentWillMount() {
