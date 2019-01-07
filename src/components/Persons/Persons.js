@@ -6,15 +6,17 @@ class Persons extends PureComponent {
   constructor(props) {
     super(props);
     console.log('[Persons.js] inside Constructor', props);
-    this.state = {
-      persons: [
-        {id: "1", name: "Max", age: 28},
-        {id: "2", name: "Adam", age: 40},
-        {id: "3", name: "Jess", age: 18}
-      ],
-      otherState: "other value",
-      showPersons: false
-    }
+    this.lastPersonRef = React.createRef();
+   
+    // this.state = {
+    //   persons: [
+    //     {id: "1", name: "Max", age: 28},
+    //     {id: "2", name: "Adam", age: 40},
+    //     {id: "3", name: "Jess", age: 18}
+    //   ],
+    //   otherState: "other value",
+    //   showPersons: false
+    // }
   }
 
   componentWillMount() {
@@ -22,7 +24,8 @@ class Persons extends PureComponent {
   }
 
   componentDidMount() {
-    console.log('[Persons.js] inside componentDidMount()')
+    console.log('[Persons.js] inside componentDidMount()');
+    this.lastPersonRef.current.focus();
   }
 
   componentWillReceiveProps (nextProps) {
@@ -54,6 +57,7 @@ class Persons extends PureComponent {
         age={person.age}
         position={index}
         key={person.id}
+        ref={this.lastPersonRef}
         click={() => this.props.clicked(index)}
         changed={( event ) => this.props.changed(event, person.id)} /> 
     });
