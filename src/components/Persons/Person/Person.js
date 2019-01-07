@@ -42,6 +42,7 @@ class Person extends Component  {
 
     return (
       <>
+        {this.props.authenticated ? <p>I'm authenticated.</p> : null}
         <p onClick={this.props.click}>I am {this.props.name} and am {this.props.age} years old</p>
         <p>{this.props.children}</p>
         <input 
